@@ -1,6 +1,6 @@
 <?php
 
-namespace Meysamtech\LivewireJalaliDatepicker;
+namespace mrezanomani\LivewireJalaliDatepicker;
 
 use Illuminate\Support\ServiceProvider;
 
