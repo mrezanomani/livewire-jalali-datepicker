@@ -3,20 +3,13 @@
         init() {
             const input = this.$refs.input;
             $(input).persianDatepicker({
-                format: 'YYYY-MM-DD H:m:s',
-                calendar: {
-                    persian: {
-                        locale: 'en',
-                        leapYearMode: 'astronomical'
-
-                    }
-            },
+                format: '{{ $format ?? 'YYYY-MM-DD' }}',
                 timePicker: {
                     enabled: {{ $withTime ?? 'false' }},
                     meridiem: { enabled: true }
                 },
                 onSelect: function(unix) {
-                    const val = new persianDate(unix).format('{{ $format ?? 'YYYY-MM-DD H:m:s' }}');
+                    const val = new persianDate(unix).format('{{ $format ?? 'YYYY-MM-DD' }}');
                     input.value = val;
                     input.dispatchEvent(new Event('input', { bubbles: true }));
                 }

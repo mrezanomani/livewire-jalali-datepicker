@@ -5,19 +5,19 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "MohammadReza",
+            "name": "Mohammadreza Nomani",
             "email": "uhostco@gmail.com"
         }
     ],
     "autoload": {
         "psr-4": {
-            "Meysamtech\\LivewireJalaliDatepicker\\": "src/"
+            "mrezanomani\\LivewireJalaliDatepicker\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Meysamtech\\LivewireJalaliDatepicker\\LivewireJalaliDatepickerServiceProvider"
+                "mrezanomani\\LivewireJalaliDatepicker\\LivewireJalaliDatepickerServiceProvider"
             ]
         }
     },
