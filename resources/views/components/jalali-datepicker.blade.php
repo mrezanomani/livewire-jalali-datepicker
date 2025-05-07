@@ -1,27 +1,31 @@
-<div 
-    x-data="{
-        init() {
-            const input = this.$refs.input;
-            $(input).persianDatepicker({
+<div
+    wire:ignore
+    x-data
+    x-init="
+        setTimeout(() => {
+           $('.datepickerInput').persianDatepicker({
                 format: '{{ $format ?? 'YYYY-MM-DD' }}',
+                calendar: {
+                    persian: {
+                        locale: 'en',
+                        leapYearMode: 'astronomical'
+                    }
+                },
                 timePicker: {
                     enabled: {{ $withTime ?? 'false' }},
                     meridiem: { enabled: true }
                 },
                 onSelect: function(unix) {
-                    const val = new persianDate(unix).format('{{ $format ?? 'YYYY-MM-DD' }}');
-                    input.value = val;
-                    input.dispatchEvent(new Event('input', { bubbles: true }));
-                }
-            });
+                    let val = new persianDate(unix).format('{{ $format ?? 'YYYY-MM-DD' }}');
+                    @this.set('{{ $attributes->get('wire:model') }}', val);
         }
-    }"
-    x-init="init"
+            });
+        }, 300);
+    "
 >
     <input
-        x-ref="input"
-        wire:model.live="{{ $attributes->get('wire:model') }}"
         type="text"
-        {{ $attributes->except('wire:model')->merge(['class' => 'form-input w-full rounded-md']) }}
+        autocomplete="off"
+        {{ $attributes->except('wire:model')->merge(['class' => 'datepickerInput w-full rounded-md border p-2']) }}
     />
 </div>
