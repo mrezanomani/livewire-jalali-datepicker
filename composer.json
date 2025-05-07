@@ -1,0 +1,25 @@
+{
+    "name": "mrezanomani/livewire-jalali-datepicker",
+    "description": "A lightweight Jalali datepicker for Livewire 3",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MohammadReza",
+            "email": "uhostco@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Meysamtech\\LivewireJalaliDatepicker\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Meysamtech\\LivewireJalaliDatepicker\\LivewireJalaliDatepickerServiceProvider"
+            ]
+        }
+    },
+    "require": {}
+}
